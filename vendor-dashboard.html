@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Dashboard - Gully Bites</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">🍛 Gully Bites - Dashboard</div>
+  <button onclick="logout()" class="btn-sm">Logout</button>
+</nav>
+
+<!-- LOGIN SCREEN -->
+<section id="loginSection" class="form-section">
+  <h1>🔐 Vendor Login</h1>
+  <form id="loginForm">
+    <label>Aapka Phone Number</label>
+    <input type="tel" id="loginPhone" placeholder="Registered phone number" required/>
+    <label>Password</label>
+    <input type="password" id="loginPassword" placeholder="Password" required/>
+    <button type="submit" class="btn-primary">Login Karo</button>
+  </form>
+  <p>Registered nahi? <a href="vendor-register.html">Yahan register karo</a></p>
+</section>
+
+<!-- DASHBOARD (hidden until login) -->
+<section id="dashboardSection" class="hidden">
+
+  <div class="dashboard-header">
+    <h2 id="dashWelcome">Namaste! 👋</h2>
+    <div class="status-toggle">
+      <span>Aaj Open Ho?</span>
+      <label class="switch">
+        <input type="checkbox" id="openToggle" onchange="toggleOpenStatus()"/>
+        <span class="slider"></span>
+      </label>
+      <span id="statusLabel" class="status-badge closed">Closed</span>
+    </div>
+  </div>
+
+  <!-- LOCATION UPDATE -->
+  <div class="dash-card">
+    <h3>📍 Location Update Karo</h3>
+    <p>Aaj aap kahan ho? Button dabao aur location share karo</p>
+    <button class="btn-primary" onclick="shareLocation()">📲 Current Location Share Karo</button>
+    <p id="locationStatus" class="hint"></p>
+  </div>
+
+  <!-- MENU MANAGEMENT -->
+  <div class="dash-card">
+    <h3>🍽️ Menu Manage Karo</h3>
+    <div id="menuList"></div>
+    <div class="add-item-form">
+      <input type="text" id="itemName" placeholder="Item name (e.g. Samosa)"/>
+      <input type="number" id="itemPrice" placeholder="Price ₹"/>
+      <input type="text" id="itemDesc" placeholder="Description (optional)"/>
+      <select id="itemAvailable">
+        <option value="yes">Available ✅</option>
+        <option value="no">Out of Stock ❌</option>
+      </select>
+      <button onclick="addMenuItem()" class="btn-primary">+ Add Item</button>
+    </div>
+  </div>
+
+  <!-- SPECIAL OFFER -->
+  <div class="dash-card">
+    <h3>🎉 Special Offer / Aaj Ka Special</h3>
+    <input type="text" id="specialOffer" placeholder="e.g. Buy 2 Momos get 1 free!"/>
+    <button onclick="updateOffer()" class="btn-primary">Update Offer</button>
+  </div>
+
+  <!-- INCOMING ORDERS -->
+  <div class="dash-card">
+    <h3>📦 Incoming Orders</h3>
+    <div id="ordersList">
+      <p class="hint">Abhi koi order nahi... Wait karo!</p>
+    </div>
+  </div>
+
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
