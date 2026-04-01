@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Your Stall - Gully Bites</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">🍛 Gully Bites</div>
+  <a href="index.html" class="back-btn">← Wapas Jao</a>
+</nav>
+
+<section class="form-section">
+  <h1>🏪 Apna Stall Register Karo</h1>
+  <p>Free registration • Apne customers tak pahuncho</p>
+
+  <form id="registerForm">
+    <label>Stall ka Naam / Stall Name *</label>
+    <input type="text" id="stallName" placeholder="e.g. Ramesh Chaat Corner" required/>
+
+    <label>Aapka Naam / Your Name *</label>
+    <input type="text" id="ownerName" placeholder="Owner ka naam" required/>
+
+    <label>WhatsApp Number *</label>
+    <input type="tel" id="phone" placeholder="e.g. 9812345678" required/>
+
+    <label>Food Category *</label>
+    <select id="category" required>
+      <option value="">-- Select karo --</option>
+      <option value="chaat">Chaat</option>
+      <option value="momos">Momos</option>
+      <option value="chai">Chai / Snacks</option>
+      <option value="rolls">Rolls / Frankie</option>
+      <option value="biryani">Biryani / Rice</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label>Area / Sector *</label>
+    <input type="text" id="area" placeholder="e.g. Sector 29, Gurugram" required/>
+
+    <label>Speciality Dish</label>
+    <input type="text" id="speciality" placeholder="e.g. Dahi Puri, Veg Momos"/>
+
+    <label>Home Delivery Available?</label>
+    <select id="delivery">
+      <option value="yes">Haan / Yes</option>
+      <option value="no">Nahi / No</option>
+    </select>
+
+    <label>Delivery Charge (₹)</label>
+    <input type="number" id="deliveryCharge" placeholder="e.g. 20" value="20"/>
+
+    <label>Delivery Radius (km)</label>
+    <input type="number" id="deliveryRadius" placeholder="e.g. 2" value="2"/>
+
+    <button type="submit" class="btn-primary">✅ Register Karo</button>
+  </form>
+
+  <div id="regSuccess" class="success-msg hidden">
+    <h3>🎉 Registration Ho Gayi!</h3>
+    <p id="regCredentials"></p>
+    <a href="vendor-dashboard.html" class="btn-primary">Dashboard Kholo</a>
+  </div>
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="register.js"></script>
+</body>
+</html>
